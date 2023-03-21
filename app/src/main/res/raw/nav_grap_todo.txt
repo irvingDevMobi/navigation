@@ -1,0 +1,25 @@
+// TODO: 2 add a navigation component file
+
+// TODO: 6a add userName attribute
+<argument
+            android:name="userName"
+            app:argType="string"
+            android:defaultValue="Unknown User" />
+
+TODO: 7c add courseName attribute
+<argument
+            android:name="courseName"
+            app:argType="string"
+            android:defaultValue="Unknown Course" />
+
+
+// TODO: 8c improve go home
+<action
+            android:id="@+id/action_goldenUserFragment_to_homeFragment"
+            app:popUpTo="@id/homeFragment" />
+
+// TODO: 10 add animation
+app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
