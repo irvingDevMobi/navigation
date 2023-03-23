@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 
 /**
  * A simple [Fragment] subclass.
@@ -26,7 +27,10 @@ class GoldenUserFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_golden_user, container, false)
         view.findViewById<Button>(R.id.goldenButton)?.setOnClickListener {
-            // TODO: 8b go to home Fragment
+            findNavController().navigate(R.id.action_goldenUserFragment_to_homeFragment)
+        }
+        view.findViewById<Button>(R.id.goldenButton2)?.setOnClickListener {
+            findNavController().navigate(R.id.action_goldenUserFragment_to_blackFragment)
         }
         return view
     }

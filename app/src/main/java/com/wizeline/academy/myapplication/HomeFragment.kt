@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
@@ -36,15 +38,21 @@ class HomeFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
         view.findViewById<Button>(R.id.button1).setOnClickListener {
             // TODO: 4 Navigate to Black User with destination
+            // import androidx.navigation.fragment.findNavController
+            //findNavController().navigate(R.id.blackUserFragment)
 
             // TODO: 6b Navigate to Black User with destination and send userName argument
-
+            val bundle = bundleOf("userName" to "Irving Lop")
+            findNavController().navigate(R.id.blackUserFragment, bundle)
         }
         view.findViewById<Button>(R.id.button2).setOnClickListener {
             // TODO: 5 Navigate to Black User with action
+            //findNavController().navigate(R.id.action_homeFragment_to_blackUserFragment)
 
             // TODO: 7d Navigate to Black User with action and send courseName
-
+            val action = HomeFragmentDirections.actionHomeFragmentToBlackUserFragment()
+            action.courseName = "Android Course"
+            findNavController().navigate(action)
         }
         return view
     }

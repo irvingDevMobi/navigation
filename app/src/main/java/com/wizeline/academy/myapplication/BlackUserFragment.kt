@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 
 /**
  * A simple [Fragment] subclass.
@@ -38,12 +40,19 @@ class BlackUserFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         // TODO: 6c set userName from arguments
+        arguments?.let {
+            val user = it.getString("userName")
+            textView1?.text = user
+        }
 
         // TODO: 7e set courseName from safeArgs
+        val safeArgs by navArgs<BlackUserFragmentArgs>()
+        textView2?.text = safeArgs.courseName
+
 
         button?.setOnClickListener {
             // TODO: 8a Challenge Go to Golden Screen and then Golden Screen to Home
-
+            findNavController().navigate(R.id.goldenUserFragment)
         }
     }
 

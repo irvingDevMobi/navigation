@@ -6,7 +6,7 @@ buildscript {
     dependencies {
         def nav_version = "2.5.3"
         // TODO: 7a add safe-args plugin
-        //classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
     }
 }
 

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.wizeline.academy.myapplication.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            android:id="@+id/action_homeFragment_to_blackUserFragment"
+            app:destination="@id/blackUserFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.wizeline.academy.myapplication.SettingsFragment"
+        android:label="SettingsFragment" />
+    <fragment
+        android:id="@+id/blackUserFragment"
+        android:name="com.wizeline.academy.myapplication.BlackUserFragment"
+        android:label="fragment_black_user"
+        tools:layout="@layout/fragment_black_user" >
+        <action
+            android:id="@+id/action_blackUserFragment_to_goldenUserFragment"
+            app:destination="@id/goldenUserFragment" />
+        <argument
+            android:name="userName"
+            app:argType="string"
+            android:defaultValue='' />
+        <argument
+            android:name="courseName"
+            app:argType="string"
+            android:defaultValue='' />
+    </fragment>
+    <fragment
+        android:id="@+id/blankFragment"
+        android:name="com.wizeline.academy.myapplication.BlankFragment"
+        android:label="fragment_blank"
+        tools:layout="@layout/fragment_blank" />
+    <fragment
+        android:id="@+id/goldenUserFragment"
+        android:name="com.wizeline.academy.myapplication.GoldenUserFragment"
+        android:label="fragment_golden_user"
+        tools:layout="@layout/fragment_golden_user" >
+        <action
+            android:id="@+id/action_goldenUserFragment_to_homeFragment"
+            app:popUpTo="@id/homeFragment" />
+        <action
+            android:id="@+id/action_goldenUserFragment_to_blackFragment"
+            app:popUpTo="@id/blackUserFragment" />
+    </fragment>
+</navigation>
+
